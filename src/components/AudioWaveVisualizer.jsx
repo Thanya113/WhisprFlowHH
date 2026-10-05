@@ -140,28 +140,30 @@ export default function AudioWaveVisualizer({ isRecording, onToggleRecord }) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: '20px',
+      flexWrap: 'wrap',
+      gap: '14px',
       boxShadow: isRecording ? '0 0 25px rgba(255, 42, 109, 0.2)' : 'none',
       transition: 'all 0.3s ease'
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: '180px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '1 1 200px' }}>
         <button
           onClick={onToggleRecord}
           className={isRecording ? 'btn-recording' : 'btn-primary'}
           style={{
             borderRadius: '50%',
-            width: '52px',
-            height: '52px',
+            width: '46px',
+            height: '46px',
             padding: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '1.2rem',
-            cursor: 'pointer'
+            fontSize: '1.1rem',
+            cursor: 'pointer',
+            flexShrink: 0
           }}
           title={isRecording ? 'Click to Stop Dictating' : 'Click to Speak with Wispr Flow'}
         >
-          {isRecording ? <MicOff size={22} /> : <Mic size={22} />}
+          {isRecording ? <MicOff size={20} /> : <Mic size={20} />}
         </button>
 
         <div>
@@ -177,18 +179,18 @@ export default function AudioWaveVisualizer({ isRecording, onToggleRecord }) {
               {isRecording ? 'Listening via Wispr Flow' : 'Voice Engine Standby'}
             </span>
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
             {isRecording ? 'Speak natural instructions freely' : 'Hold Fn / Spacebar or click mic'}
           </span>
         </div>
       </div>
 
       {/* Canvas waveform display */}
-      <div style={{ flex: 1, position: 'relative', height: '60px', display: 'flex', alignItems: 'center' }}>
+      <div style={{ flex: '2 1 240px', position: 'relative', height: '54px', display: 'flex', alignItems: 'center', minWidth: '180px' }}>
         <canvas
           ref={canvasRef}
           width={500}
-          height={60}
+          height={54}
           style={{ width: '100%', height: '100%', borderRadius: '8px' }}
         />
         {isRecording && (
@@ -212,8 +214,8 @@ export default function AudioWaveVisualizer({ isRecording, onToggleRecord }) {
         )}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.8rem' }}>
-        <Volume2 size={16} color={isRecording ? '#00f2fe' : '#64748b'} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b', fontSize: '0.75rem', flexShrink: 0 }}>
+        <Volume2 size={15} color={isRecording ? '#00f2fe' : '#64748b'} />
         <span style={{ fontFamily: 'var(--font-mono)' }}>{hasMicAccess ? 'Live Mic' : 'Synth Stream'}</span>
       </div>
     </div>

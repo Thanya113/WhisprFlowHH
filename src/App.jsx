@@ -7,10 +7,8 @@ import ComponentSandbox from './components/ComponentSandbox';
 import CodeInspector from './components/CodeInspector';
 import MacroBuilder from './components/MacroBuilder';
 import DevJourneyTimeline from './components/DevJourneyTimeline';
-import VideoSubmissionModal from './components/VideoSubmissionModal';
-import { SAMPLE_VOICE_TEMPLATES } from './data/mockPrompts';
-import { createSpeechRecognizer, cleanWisprSpeech } from './utils/speechProcessor';
-import { ShieldAlert, ExternalLink, Heart, Sparkles, Terminal } from 'lucide-react';
+import { createSpeechRecognizer } from './utils/speechProcessor';
+import { Sparkles } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('studio'); // 'studio' | 'macros' | 'journey'
@@ -18,7 +16,6 @@ export default function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [rawText, setRawText] = useState('Um, hey Wispr Flow, like build me a three tier pricing table with a monthly annual switch, neon cyan border on the popular plan, and interactive feature checklist.');
   const [isExecuting, setIsExecuting] = useState(false);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const recognizerRef = useRef(null);
 
@@ -110,17 +107,16 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-canvas)' }}>
+    <div className="app-shell">
       {/* Top Navbar */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onOpenVideoModal={() => setIsVideoModalOpen(true)}
         isRecording={isRecording}
       />
 
       {/* Main Container */}
-      <main style={{ flex: 1, padding: '24px', maxWidth: '1600px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <main className="main-content-wrap">
         {/* Audio Waveform Bar (Always accessible for voice dictation) */}
         <AudioWaveVisualizer
           isRecording={isRecording}
@@ -129,7 +125,7 @@ export default function App() {
 
         {/* Tab 1: Voice Studio */}
         {activeTab === 'studio' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="studio-tab-content">
             {/* Realtime Wispr Flow Dictation & Prompt Transformer */}
             <VoiceInputBar
               rawText={rawText}
@@ -139,12 +135,7 @@ export default function App() {
             />
 
             {/* Split Screen Workspace: Sandbox on Left, Code Inspector on Right */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
-              gap: '20px',
-              minHeight: '560px'
-            }}>
+            <div className="workspace-split-grid">
               <ComponentSandbox
                 activeTemplateId={activeTemplateId}
                 onTriggerConfetti={() => confetti({ particleCount: 50, spread: 60 })}
@@ -168,51 +159,24 @@ export default function App() {
         )}
       </main>
 
-      {/* Video Submission Modal */}
-      {isVideoModalOpen && (
-        <VideoSubmissionModal onClose={() => setIsVideoModalOpen(false)} />
-      )}
-
       {/* Footer */}
-      <footer style={{
-        marginTop: 'auto',
-        borderTop: '1px solid var(--border-subtle)',
-        background: 'rgba(7, 9, 14, 0.95)',
-        padding: '20px 24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '12px',
-        fontSize: '0.8rem',
-        color: '#94a3b8'
-      }}>
+      <footer className="app-footer">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Sparkles size={15} color="#00f2fe" />
           <span>
-            Built for the <strong>Wispr Flow Shortlisting Task</strong> by <strong>Thanya</strong> (@Thanya113)
+            <strong>WisprFlow Studio</strong> — Voice-Driven AI Developer Workspace
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <span>
-            Deadline: <strong style={{ color: '#f8fafc' }}>October 6, 2026, 11:59 PM</strong>
-          </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <span>Powered entirely by voice dictation</span>
           <a
-            href="https://ref.wisprflow.ai/hhg"
+            href="https://github.com/Thanya113/WhisprFlowHH"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#00f2fe', textDecoration: 'none', fontWeight: 600 }}
+            style={{ color: '#00f2fe', textDecoration: 'none' }}
           >
-            Referral: ref.wisprflow.ai/hhg
-          </a>
-          <a
-            href="https://forms.gle/Lv9wF8gYVHdEqfJW8"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#05ffa1', textDecoration: 'none', fontWeight: 600 }}
-          >
-            Submission Form
+            GitHub Repository
           </a>
         </div>
       </footer>

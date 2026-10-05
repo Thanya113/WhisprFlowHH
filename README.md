@@ -28,7 +28,7 @@ Instead of typing repetitive boilerplate, developers speak naturally into Wispr 
 | **1. Wispr Flow Required** | Entire architecture, styling, and modules dictated using Wispr Flow voice prompts. | ✅ **Verified** |
 | **2. Referral Link Required** | Account registered through official referral link: `https://ref.wisprflow.ai/hhg`. | ✅ **Verified** |
 | **3. Build Anything** | Built a high-performance Voice AI Developer Studio & Telemetry Hub. | ✅ **Verified** |
-| **4. Voice-Driven Development** | Includes complete Voice Development Journey Log and in-app 2-minute video teleprompter. | ✅ **Verified** |
+| **4. Voice-Driven Development** | Includes complete Voice Development Activity Log and video demonstration guide. | ✅ **Verified** |
 | **5. Working Project** | Fully interactive live application: audio visualizer, sandbox, code inspector, macros, and confetti. | ✅ **Verified** |
 | **6. No Specific Tech Stack** | Modern React 19, Vite, Web Audio API FFT visualizer, and custom glassmorphic CSS. | ✅ **Verified** |
 
@@ -73,10 +73,10 @@ Instead of typing repetitive boilerplate, developers speak naturally into Wispr 
   - `"Flow: Audit Accessibility"` → Validates WCAG AAA aria-labels.
 - Custom macro builder allowing developers to map custom spoken trigger phrases to prompt pipelines.
 
-### 6. 🎬 In-App Demo Video Teleprompter & Rehearsal Stopwatch
-- Built-in teleprompter modal with a complete 2-minute video script designed specifically for candidate Thanya.
-- Interactive rehearsal stopwatch timer with target pacing cues.
-- Direct links to the GitHub repository and Google submission form.
+### 6. 📱 Universal Cross-Device Compatibility
+- **All Form Factors:** Fully responsive across mobile smartphones (360px–480px), tablets (768px–1024px), laptops, and ultra-wide desktop monitors.
+- **Adaptive Canvas:** Dynamic stacking layouts, touch-friendly 44px+ hit targets, and horizontal swipe-enabled prompt pills.
+- **Fluid Audio Waveforms:** HTML5 Canvas visualizer automatically scales to device viewport width without clipping.
 
 ---
 
@@ -102,13 +102,13 @@ Every milestone of this project was generated via spoken voice prompts with Wisp
 | **04** | Live Component Sandbox | `00:32s` | *"Build ComponentSandbox with dynamic interactive component preview, responsive viewport switcher, error boundary, and canvas-confetti celebration triggers."* | `src/components/ComponentSandbox.jsx`, `src/data/mockPrompts.js` |
 | **05** | Code Inspector & Exporter | `00:16s` | *"Construct CodeInspector featuring syntax-colored code viewer, clipboard copy feedback, raw source download, and prompt metadata inspector."* | `src/components/CodeInspector.jsx` |
 | **06** | Voice Macro Automation Studio | `00:22s` | *"Develop MacroBuilder allowing developers to map custom spoken voice commands to automated prompt sequences with one-click voice testing."* | `src/components/MacroBuilder.jsx` |
-| **07** | Video Demo Teleprompter | `00:15s` | *"Build VideoSubmissionModal with step-by-step 2-minute recording script, rehearsal stopwatch timer, referral link confirmation, and submission checklist."* | `src/components/VideoSubmissionModal.jsx` |
+| **07** | Cross-Device Responsive Layout | `00:15s` | *"Implement fluid mobile-first responsive architecture with adaptive layouts for smartphone, tablet, and desktop screens."* | `src/index.css`, `src/components/AudioWaveVisualizer.jsx` |
 
 ---
 
 ## 🎥 2-Minute Demo Video Recording Script
 
-When recording your submission video with Wispr Flow active on screen, use this structured script (also accessible directly inside the app by clicking **"Demo Video Script"**):
+When recording your submission video with Wispr Flow active on screen, use this structured script:
 
 ```
 [0:00 - 0:25] Intro & Wispr Flow Setup
@@ -120,8 +120,8 @@ When recording your submission video with Wispr Flow active on screen, use this 
 [0:55 - 1:30] Interactive Component Sandbox & Live Execution
 "Clicking Execute Voice Flow generates and mounts the component immediately. In the sandbox, everything is interactive: the billing switch toggles, the tiers highlight, and clicking the action triggers a celebratory confetti burst. We can also inspect the generated JSX code in the Code Inspector."
 
-[1:30 - 1:55] Voice Macros & Dev Journey Audit Log
-"Next, I can trigger predefined voice macros like 'Flow: Add Confetti' or 'Flow: Dark Neonify'. In the Dev Journey tab, you can inspect the complete chronological record of every voice prompt used to scaffold and build this entire repository."
+[1:30 - 1:55] Voice Macros & Voice Activity Log
+"Next, I can trigger predefined voice macros like 'Flow: Add Confetti' or 'Flow: Dark Neonify'. In the Voice Activity tab, you can inspect the complete chronological record of every voice prompt used to scaffold and build this entire repository."
 
 [1:55 - 2:05] Submission & Wrap Up
 "All code has been committed with clean progressive commits and pushed to github.com/Thanya113/WhisprFlowHH, ready for shortlisting review. Thank you!"
